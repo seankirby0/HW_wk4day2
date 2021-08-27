@@ -4,6 +4,17 @@ FROM film_actor
 INNER JOIN actor
 ON actor.actor_id = film_actor.actor_id;
 
+SELECT film.film.id, title, release_year, actor_id
+FROM film_actor
+JOIN film
+ON film.film_id = film_actor.film_id;
+
+SELECT film.film_id, title, actor.actor_id, first_name, last_name, release_year
+FROM film_actor
+JOIN actor
+ON film_actor.actor_id = film_actor.film_id
+WHERE film.film_id = 1;
+
 -- Left Join on the Actor and Film_Actor Table
 SELECT actor.actor_id, first_name,last_name,film_id
 FROM film_actor
@@ -92,3 +103,6 @@ WHERE language_id IN (
 	FROM language
 	WHERE name = 'English'
 );
+
+SELECT *
+FROM actor;
